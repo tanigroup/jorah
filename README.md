@@ -23,7 +23,7 @@ GOLANG Event Subscriber base repo for Tanigroup
 ## Usage
 
 ```
-import "github.com/mormont/jorah/subscriber"
+import "github.com/tanigroup/jorah/subscriber"
 
 func ...(){
   sub := subscriber.Init(project, subscription, topic)

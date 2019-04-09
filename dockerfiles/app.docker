@@ -1,14 +1,14 @@
 FROM golang:latest as builder
-RUN mkdir -p /go/src/github.com/mormont/jorah
-COPY . /go/src/github.com/mormont/jorah/
-WORKDIR /go/src/github.com/mormont/jorah
+RUN mkdir -p /go/src/github.com/tanigroup/jorah
+COPY . /go/src/github.com/tanigroup/jorah/
+WORKDIR /go/src/github.com/tanigroup/jorah
 RUN go get ./
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o jorah .
 
 FROM alpine:latest
 RUN apk --no-cache add ca-certificates
 WORKDIR /root
-COPY --from=builder /go/src/github.com/mormont/jorah/jorah /root
+COPY --from=builder /go/src/github.com/tanigroup/jorah/ /root
 COPY ./.env .
 COPY ./tanigroup-2018-2220b8aee5d0.json .
 
