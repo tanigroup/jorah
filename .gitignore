@@ -1,0 +1,4 @@
+*.exe
+jorah
+.env
+vendor

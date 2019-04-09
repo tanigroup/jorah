@@ -1,0 +1,22 @@
+version: "2"
+
+services:
+  d-jorah:
+    container_name: "d-jorah"
+    image: gcr.io/tanigroup-2018/d-jorah:latest
+    build:
+      context: .
+      dockerfile: ./dockerfiles/app.docker.dev
+    env_file: .env
+    ports:
+      - "8081:8080"
+    volumes:
+        - .:/go/src/github.com/mormont/jorah
+    networks:
+      - default
+      - bridge-network
+networks:
+  default:
+    driver: bridge
+  bridge-network:
+    external: true

@@ -1,0 +1,12 @@
+version: "2"
+
+services:
+  p-jorah:
+    build:
+      context: .
+      dockerfile: dockerfiles/app.docker
+    container_name: "p-jorah"
+    env_file: .env
+    image: gcr.io/tanigroup-2018/p-jorah:latest
+    ports:
+      - "8081:8080"

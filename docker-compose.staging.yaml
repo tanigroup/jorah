@@ -1,0 +1,12 @@
+version: "2"
+
+services:
+  s-jorah:
+    build:
+      context: .
+      dockerfile: dockerfiles/app.docker
+    container_name: "s-jorah"
+    env_file: .env
+    image: gcr.io/tanigroup-2018/s-jorah:latest
+    ports:
+      - "8081:8080"

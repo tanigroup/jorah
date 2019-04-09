@@ -1,0 +1,7 @@
+FROM golang:latest
+RUN mkdir -p /go/src/github.com/mormont/jorah
+COPY . /go/src/github.com/mormont/jorah/
+WORKDIR /go/src/github.com/mormont/jorah
+RUN go get
+RUN go build
+CMD ["jorah"]
